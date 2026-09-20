@@ -2,6 +2,8 @@
 
 Recorded on **2026-09-20**, using `mcp-server-jev` 0.1.0 and `jev-1.13.0`. All inputs are synthetic. No customer records or private website content are included.
 
+The [French tutorial on La Minute IA](https://la-minute-ia.fr/articles/jev-codex-claude-mcp-tests-installation) includes 12 screenshots, the installation steps, and the failed cases.
+
 ## What was measured
 
 | Scenario | Questions | MCP round trip | Predetermined checks met |

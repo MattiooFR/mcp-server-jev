@@ -10,6 +10,8 @@ Classify documents. Triage tickets. Score relevance. Review content against a ru
 
 **[Eight reproducible live scenarios](docs/tutorial/README.md)** cover support, search intent, lead qualification, editorial checks, duplicates, adversarial messages, rubric design, and batching. The published evidence includes failures, raw results, and real Codex/Claude Code tool calls.
 
+Read the illustrated French walkthrough: **[Jev dans Codex et Claude : 8 tests et un MCP à installer](https://la-minute-ia.fr/articles/jev-codex-claude-mcp-tests-installation)**.
+
 ## What it exposes
 
 One tool: **`jev_evaluate`**.
