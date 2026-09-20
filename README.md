@@ -6,6 +6,10 @@ Classify documents. Triage tickets. Score relevance. Review content against a ru
 
 **Independent, community-maintained project. Not affiliated with TypeSafe.** No database, application backend, or project-specific integration is required.
 
+**En français : [installation pas à pas dans Codex et Claude](docs/installation-fr.md).** Includes a prompt you can give your agent, private API-key setup, client configuration, and troubleshooting.
+
+**[Eight reproducible live scenarios](docs/tutorial/README.md)** cover support, search intent, lead qualification, editorial checks, duplicates, adversarial messages, rubric design, and batching. The published evidence includes failures, raw results, and real Codex/Claude Code tool calls.
+
 ## What it exposes
 
 One tool: **`jev_evaluate`**.

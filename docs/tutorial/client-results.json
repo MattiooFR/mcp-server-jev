@@ -1,0 +1,154 @@
+[
+  {
+    "client": "codex",
+    "installation": "Public release v0.1.0 installed in a fresh temporary directory, SHA256 verified",
+    "tool": "jev_evaluate",
+    "input": {
+      "state": "Une commande mais deux débits de 49 euros. Je demande le remboursement du doublon.",
+      "questions": {
+        "service": {
+          "type": "choice",
+          "instructions": "Quel service doit traiter la demande exprimée dans le texte fourni ?",
+          "criteria": {
+            "facturation": "Débits, paiements, factures ou remboursements.",
+            "technique": "Problème technique ou de fonctionnement.",
+            "commercial": "Question sur une offre, un achat ou les conditions commerciales."
+          }
+        },
+        "remboursement_explicite": {
+          "type": "noul",
+          "instructions": "Le texte fourni contient-il une demande explicite de remboursement ?",
+          "criteria": {
+            "true": "Un remboursement est explicitement demandé.",
+            "false": "Aucun remboursement n'est explicitement demandé."
+          }
+        },
+        "urgence": {
+          "type": "score",
+          "instructions": "Quel niveau d'urgence est explicitement établi par le texte fourni ? Évaluer seulement les éléments présents dans le texte.",
+          "criteria": [
+            "aucune activité bloquée",
+            "échéance explicite",
+            "activité bloquée sans recours"
+          ]
+        }
+      }
+    },
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "service": {
+          "type": "choice",
+          "choice": "facturation",
+          "probabilities": {
+            "commercial": 0,
+            "technique": 0,
+            "facturation": 1
+          },
+          "confidence": 1
+        },
+        "remboursement_explicite": {
+          "type": "noul",
+          "noul": 0.99
+        },
+        "urgence": {
+          "type": "score",
+          "score": 0.01,
+          "probabilities": {
+            "0": 0.99,
+            "1": 0.01,
+            "2": 0
+          },
+          "confidence": 0.98,
+          "legend": {
+            "0": "aucune activité bloquée",
+            "1": "échéance explicite",
+            "2": "activité bloquée sans recours"
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 512,
+        "output_tokens": 80
+      },
+      "latency_ms": 922,
+      "attempts": 1
+    }
+  },
+  {
+    "client": "claude",
+    "installation": "Public release v0.1.0 installed in a fresh temporary directory, SHA256 verified",
+    "tool": "jev_evaluate",
+    "input": {
+      "state": "Une commande mais deux débits de 49 euros. Je demande le remboursement du doublon.",
+      "questions": {
+        "service": {
+          "type": "choice",
+          "instructions": "À quel service ce message client doit-il être routé ?",
+          "criteria": {
+            "facturation": "Problème de paiement, débit, facture ou remboursement",
+            "technique": "Bug, panne ou problème de fonctionnement du produit",
+            "commercial": "Question avant-vente, tarif, offre ou devis"
+          }
+        },
+        "demande_remboursement": {
+          "type": "noul",
+          "instructions": "Le message contient-il une demande explicite de remboursement ?",
+          "criteria": {
+            "true": "Le client demande explicitement un remboursement",
+            "false": "Aucune demande explicite de remboursement"
+          }
+        },
+        "urgence": {
+          "type": "score",
+          "instructions": "Évalue le niveau d'urgence du message client.",
+          "criteria": [
+            "Aucune activité bloquée",
+            "Échéance explicite mentionnée",
+            "Activité bloquée sans recours"
+          ]
+        }
+      }
+    },
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "service": {
+          "type": "choice",
+          "choice": "facturation",
+          "probabilities": {
+            "facturation": 1,
+            "technique": 0,
+            "commercial": 0
+          },
+          "confidence": 1
+        },
+        "demande_remboursement": {
+          "type": "noul",
+          "noul": 0.99
+        },
+        "urgence": {
+          "type": "score",
+          "score": 0.1,
+          "probabilities": {
+            "0": 0.94,
+            "1": 0.02,
+            "2": 0.04
+          },
+          "confidence": 0.85,
+          "legend": {
+            "0": "Aucune activité bloquée",
+            "1": "Échéance explicite mentionnée",
+            "2": "Activité bloquée sans recours"
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 495,
+        "output_tokens": 79
+      },
+      "latency_ms": 787,
+      "attempts": 1
+    }
+  }
+]

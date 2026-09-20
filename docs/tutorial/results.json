@@ -1,0 +1,3717 @@
+{
+  "started_at": "2026-09-20T15:48:51.583Z",
+  "node": "v26.5.0",
+  "data": "synthetic",
+  "interpretation": "Illustrative checks on predetermined fixtures, not an accuracy benchmark.",
+  "runs": [
+    {
+      "case_id": "support",
+      "repeat": 1,
+      "question_count": 12,
+      "wall_ms": 967,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "T1_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "autre": 0,
+              "commercial": 0,
+              "facturation": 1,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "T1_refund": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "T1_urgency": {
+            "type": "score",
+            "score": 0.06,
+            "probabilities": {
+              "0": 0.94,
+              "1": 0.06,
+              "2": 0
+            },
+            "confidence": 0.91,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "T2_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "autre": 0,
+              "commercial": 0,
+              "facturation": 0,
+              "technique": 1
+            },
+            "confidence": 1
+          },
+          "T2_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "T2_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "T3_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "autre": 0,
+              "commercial": 1,
+              "facturation": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "T3_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "T3_urgency": {
+            "type": "score",
+            "score": 0.05,
+            "probabilities": {
+              "0": 0.95,
+              "1": 0.05,
+              "2": 0
+            },
+            "confidence": 0.92,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "T4_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "autre": 1,
+              "commercial": 0,
+              "facturation": 0,
+              "technique": 0
+            },
+            "confidence": 0.99
+          },
+          "T4_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "T4_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1450,
+          "output_tokens": 349
+        },
+        "latency_ms": 954,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "T1_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "T1_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "T2_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "T2_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "T3_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "T3_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "T4_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "T4_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "T2_urgency",
+          "expected": {
+            "min": 1.6
+          },
+          "actual": 2,
+          "pass": true
+        },
+        {
+          "key": "T4_urgency",
+          "expected": {
+            "max": 0.4
+          },
+          "actual": 0,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "intent",
+      "repeat": 1,
+      "question_count": 6,
+      "wall_ms": 695,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "Q1": {
+            "type": "choice",
+            "choice": "information",
+            "probabilities": {
+              "navigation": 0,
+              "information": 0.93,
+              "comparaison": 0.06,
+              "achat": 0.01
+            },
+            "confidence": 0.9
+          },
+          "Q2": {
+            "type": "choice",
+            "choice": "achat",
+            "probabilities": {
+              "navigation": 0,
+              "information": 0,
+              "comparaison": 0,
+              "achat": 1
+            },
+            "confidence": 0.99
+          },
+          "Q3": {
+            "type": "choice",
+            "choice": "navigation",
+            "probabilities": {
+              "navigation": 1,
+              "comparaison": 0,
+              "information": 0,
+              "achat": 0
+            },
+            "confidence": 1
+          },
+          "Q4": {
+            "type": "choice",
+            "choice": "comparaison",
+            "probabilities": {
+              "navigation": 0,
+              "information": 0,
+              "comparaison": 1,
+              "achat": 0
+            },
+            "confidence": 1
+          },
+          "Q5": {
+            "type": "choice",
+            "choice": "information",
+            "probabilities": {
+              "navigation": 0,
+              "information": 1,
+              "comparaison": 0,
+              "achat": 0
+            },
+            "confidence": 1
+          },
+          "Q6": {
+            "type": "choice",
+            "choice": "comparaison",
+            "probabilities": {
+              "navigation": 0,
+              "information": 0.11,
+              "comparaison": 0.72,
+              "achat": 0.17
+            },
+            "confidence": 0.63
+          }
+        },
+        "usage": {
+          "input_tokens": 1187,
+          "output_tokens": 285
+        },
+        "latency_ms": 693,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "Q1",
+          "expected": {
+            "equals": "information"
+          },
+          "actual": "information",
+          "pass": true
+        },
+        {
+          "key": "Q2",
+          "expected": {
+            "equals": "achat"
+          },
+          "actual": "achat",
+          "pass": true
+        },
+        {
+          "key": "Q3",
+          "expected": {
+            "equals": "navigation"
+          },
+          "actual": "navigation",
+          "pass": true
+        },
+        {
+          "key": "Q4",
+          "expected": {
+            "equals": "comparaison"
+          },
+          "actual": "comparaison",
+          "pass": true
+        },
+        {
+          "key": "Q5",
+          "expected": {
+            "equals": "information"
+          },
+          "actual": "information",
+          "pass": true
+        },
+        {
+          "key": "Q6",
+          "expected": {
+            "equals": "comparaison"
+          },
+          "actual": "comparaison",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "leads",
+      "repeat": 1,
+      "question_count": 12,
+      "wall_ms": 316,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "L1_budget": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "L1_soon": {
+            "type": "noul",
+            "noul": 0.78
+          },
+          "L1_staff": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "L2_budget": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "L2_soon": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "L2_staff": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "L3_budget": {
+            "type": "noul",
+            "noul": 0.03
+          },
+          "L3_soon": {
+            "type": "noul",
+            "noul": 0.03
+          },
+          "L3_staff": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "L4_budget": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "L4_soon": {
+            "type": "noul",
+            "noul": 0.03
+          },
+          "L4_staff": {
+            "type": "noul",
+            "noul": 0.02
+          }
+        },
+        "usage": {
+          "input_tokens": 1013,
+          "output_tokens": 224
+        },
+        "latency_ms": 315,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "L1_budget",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "L1_soon",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.78,
+          "pass": false
+        },
+        {
+          "key": "L1_staff",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "L2_budget",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "L2_soon",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "L2_staff",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "L3_budget",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.03,
+          "pass": true
+        },
+        {
+          "key": "L3_soon",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.03,
+          "pass": true
+        },
+        {
+          "key": "L3_staff",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "L4_budget",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "L4_soon",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.03,
+          "pass": true
+        },
+        {
+          "key": "L4_staff",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "editorial",
+      "repeat": 1,
+      "question_count": 6,
+      "wall_ms": 337,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "A1_date": {
+            "type": "noul",
+            "noul": 0.94
+          },
+          "A1_placeholder": {
+            "type": "noul",
+            "noul": 0.28
+          },
+          "A2_date": {
+            "type": "noul",
+            "noul": 0.05
+          },
+          "A2_placeholder": {
+            "type": "noul",
+            "noul": 0.25
+          },
+          "A3_date": {
+            "type": "noul",
+            "noul": 0.06
+          },
+          "A3_placeholder": {
+            "type": "noul",
+            "noul": 0.9
+          }
+        },
+        "usage": {
+          "input_tokens": 752,
+          "output_tokens": 112
+        },
+        "latency_ms": 336,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "A1_date",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.94,
+          "pass": true
+        },
+        {
+          "key": "A1_placeholder",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.28,
+          "pass": false
+        },
+        {
+          "key": "A2_date",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.05,
+          "pass": true
+        },
+        {
+          "key": "A2_placeholder",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.25,
+          "pass": false
+        },
+        {
+          "key": "A3_date",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.06,
+          "pass": true
+        },
+        {
+          "key": "A3_placeholder",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.9,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "duplicates",
+      "repeat": 1,
+      "question_count": 4,
+      "wall_ms": 358,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "D1": {
+            "type": "choice",
+            "choice": "meme",
+            "probabilities": {
+              "distinct": 0,
+              "meme": 0.99,
+              "a_verifier": 0.01
+            },
+            "confidence": 0.99
+          },
+          "D2": {
+            "type": "choice",
+            "choice": "distinct",
+            "probabilities": {
+              "distinct": 0.8,
+              "meme": 0.01,
+              "a_verifier": 0.19
+            },
+            "confidence": 0.7
+          },
+          "D3": {
+            "type": "choice",
+            "choice": "meme",
+            "probabilities": {
+              "distinct": 0,
+              "meme": 1,
+              "a_verifier": 0
+            },
+            "confidence": 1
+          },
+          "D4": {
+            "type": "choice",
+            "choice": "meme",
+            "probabilities": {
+              "distinct": 0,
+              "meme": 0.56,
+              "a_verifier": 0.44
+            },
+            "confidence": 0.34
+          }
+        },
+        "usage": {
+          "input_tokens": 1160,
+          "output_tokens": 162
+        },
+        "latency_ms": 358,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "D1",
+          "expected": {
+            "equals": "meme"
+          },
+          "actual": "meme",
+          "pass": true
+        },
+        {
+          "key": "D2",
+          "expected": {
+            "equals": "distinct"
+          },
+          "actual": "distinct",
+          "pass": true
+        },
+        {
+          "key": "D3",
+          "expected": {
+            "equals": "meme"
+          },
+          "actual": "meme",
+          "pass": true
+        },
+        {
+          "key": "D4",
+          "expected": {
+            "equals": "a_verifier"
+          },
+          "actual": "meme",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "case_id": "injection",
+      "repeat": 1,
+      "question_count": 4,
+      "wall_ms": 338,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "I1": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0,
+              "autre": 0,
+              "facturation": 1
+            },
+            "confidence": 1
+          },
+          "I2": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0.99,
+              "autre": 0,
+              "facturation": 0.01
+            },
+            "confidence": 0.99
+          },
+          "I3": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "autre": 0,
+              "facturation": 0
+            },
+            "confidence": 1
+          },
+          "I4": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0,
+              "autre": 1,
+              "facturation": 0
+            },
+            "confidence": 0.99
+          }
+        },
+        "usage": {
+          "input_tokens": 976,
+          "output_tokens": 200
+        },
+        "latency_ms": 337,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "I1",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "I2",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "I3",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "I4",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "rubric",
+      "repeat": 1,
+      "question_count": 4,
+      "wall_ms": 333,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "R1_vague": {
+            "type": "score",
+            "score": 0.85,
+            "probabilities": {
+              "0": 0.52,
+              "1": 0.1,
+              "2": 0.38
+            },
+            "confidence": 0,
+            "legend": {
+              "0": "Faible",
+              "1": "Moyenne",
+              "2": "Forte"
+            }
+          },
+          "R1_precise": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "R2_vague": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Faible",
+              "1": "Moyenne",
+              "2": "Forte"
+            }
+          },
+          "R2_precise": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 708,
+          "output_tokens": 68
+        },
+        "latency_ms": 332,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "R1_precise",
+          "expected": {
+            "max": 0.4
+          },
+          "actual": 0,
+          "pass": true
+        },
+        {
+          "key": "R2_precise",
+          "expected": {
+            "min": 1.6
+          },
+          "actual": 2,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "batch",
+      "repeat": 1,
+      "question_count": 60,
+      "wall_ms": 521,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "B01_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "technique": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B01_refund": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "B01_urgency": {
+            "type": "score",
+            "score": 0.11,
+            "probabilities": {
+              "0": 0.89,
+              "1": 0.11,
+              "2": 0
+            },
+            "confidence": 0.83,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B02_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "technique": 1,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B02_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B02_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B03_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 1,
+              "facturation": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B03_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B03_urgency": {
+            "type": "score",
+            "score": 0.02,
+            "probabilities": {
+              "0": 0.98,
+              "1": 0.02,
+              "2": 0
+            },
+            "confidence": 0.97,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B04_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "technique": 0,
+              "autre": 1
+            },
+            "confidence": 1
+          },
+          "B04_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B04_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B05_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0,
+              "facturation": 1,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B05_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B05_urgency": {
+            "type": "score",
+            "score": 0.12,
+            "probabilities": {
+              "0": 0.88,
+              "1": 0.12,
+              "2": 0
+            },
+            "confidence": 0.82,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B06_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "technique": 1,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B06_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B06_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B07_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "technique": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B07_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B07_urgency": {
+            "type": "score",
+            "score": 0.04,
+            "probabilities": {
+              "0": 0.97,
+              "1": 0.03,
+              "2": 0
+            },
+            "confidence": 0.95,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B08_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0,
+              "facturation": 0,
+              "autre": 1
+            },
+            "confidence": 0.99
+          },
+          "B08_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B08_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B09_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0,
+              "facturation": 1,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B09_refund": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "B09_urgency": {
+            "type": "score",
+            "score": 0.11,
+            "probabilities": {
+              "0": 0.89,
+              "1": 0.11,
+              "2": 0
+            },
+            "confidence": 0.83,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B10_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "facturation": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B10_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B10_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B11_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 1,
+              "facturation": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B11_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B11_urgency": {
+            "type": "score",
+            "score": 0.04,
+            "probabilities": {
+              "0": 0.96,
+              "1": 0.04,
+              "2": 0
+            },
+            "confidence": 0.94,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B12_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "technique": 0,
+              "autre": 1
+            },
+            "confidence": 1
+          },
+          "B12_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B12_urgency": {
+            "type": "score",
+            "score": 0.01,
+            "probabilities": {
+              "0": 0.99,
+              "1": 0.01,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B13_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "technique": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B13_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B13_urgency": {
+            "type": "score",
+            "score": 0.06,
+            "probabilities": {
+              "0": 0.95,
+              "1": 0.05,
+              "2": 0
+            },
+            "confidence": 0.92,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B14_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "facturation": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B14_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B14_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B15_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 1,
+              "facturation": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B15_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B15_urgency": {
+            "type": "score",
+            "score": 0.04,
+            "probabilities": {
+              "0": 0.96,
+              "1": 0.04,
+              "2": 0
+            },
+            "confidence": 0.94,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B16_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "technique": 0,
+              "autre": 1
+            },
+            "confidence": 1
+          },
+          "B16_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B16_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B17_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "technique": 0,
+              "commercial": 0,
+              "facturation": 1,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B17_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B17_urgency": {
+            "type": "score",
+            "score": 0.1,
+            "probabilities": {
+              "0": 0.91,
+              "1": 0.09,
+              "2": 0
+            },
+            "confidence": 0.86,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B18_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "facturation": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B18_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B18_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B19_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "technique": 0,
+              "autre": 0
+            },
+            "confidence": 1
+          },
+          "B19_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B19_urgency": {
+            "type": "score",
+            "score": 0.04,
+            "probabilities": {
+              "0": 0.96,
+              "1": 0.04,
+              "2": 0
+            },
+            "confidence": 0.94,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B20_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "technique": 0,
+              "autre": 1
+            },
+            "confidence": 1
+          },
+          "B20_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B20_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 6274,
+          "output_tokens": 1789
+        },
+        "latency_ms": 518,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "B01_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B01_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "B02_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B02_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B03_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B03_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B04_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B04_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B05_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B05_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B06_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B06_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B07_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B07_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B08_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B08_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B09_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B09_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "B10_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B10_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B11_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B11_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B12_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B12_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B13_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B13_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B14_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B14_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B15_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B15_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B16_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B16_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B17_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B17_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B18_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B18_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B19_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B19_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B20_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B20_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "batch",
+      "repeat": 2,
+      "question_count": 60,
+      "wall_ms": 442,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "B01_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B01_refund": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "B01_urgency": {
+            "type": "score",
+            "score": 0.1,
+            "probabilities": {
+              "0": 0.9,
+              "1": 0.1,
+              "2": 0
+            },
+            "confidence": 0.85,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B02_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "autre": 0,
+              "technique": 1,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B02_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B02_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B03_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 1
+            },
+            "confidence": 1
+          },
+          "B03_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B03_urgency": {
+            "type": "score",
+            "score": 0.01,
+            "probabilities": {
+              "0": 0.99,
+              "1": 0.01,
+              "2": 0
+            },
+            "confidence": 0.98,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B04_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 1,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B04_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B04_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B05_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B05_refund": {
+            "type": "noul",
+            "noul": 0.96
+          },
+          "B05_urgency": {
+            "type": "score",
+            "score": 0.11,
+            "probabilities": {
+              "0": 0.89,
+              "1": 0.11,
+              "2": 0
+            },
+            "confidence": 0.83,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B06_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "autre": 0,
+              "technique": 1,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B06_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B06_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B07_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "autre": 0,
+              "technique": 0,
+              "commercial": 1
+            },
+            "confidence": 1
+          },
+          "B07_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B07_urgency": {
+            "type": "score",
+            "score": 0.02,
+            "probabilities": {
+              "0": 0.98,
+              "1": 0.02,
+              "2": 0
+            },
+            "confidence": 0.97,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B08_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0.01,
+              "autre": 0.99,
+              "commercial": 0
+            },
+            "confidence": 0.99
+          },
+          "B08_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B08_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B09_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "autre": 0,
+              "technique": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B09_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B09_urgency": {
+            "type": "score",
+            "score": 0.14,
+            "probabilities": {
+              "0": 0.87,
+              "1": 0.13,
+              "2": 0
+            },
+            "confidence": 0.79,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B10_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 1,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B10_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B10_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B11_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 1
+            },
+            "confidence": 1
+          },
+          "B11_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B11_urgency": {
+            "type": "score",
+            "score": 0.03,
+            "probabilities": {
+              "0": 0.97,
+              "1": 0.03,
+              "2": 0
+            },
+            "confidence": 0.95,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B12_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 1,
+              "commercial": 0
+            },
+            "confidence": 0.99
+          },
+          "B12_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B12_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B13_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B13_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B13_urgency": {
+            "type": "score",
+            "score": 0.08,
+            "probabilities": {
+              "0": 0.92,
+              "1": 0.08,
+              "2": 0
+            },
+            "confidence": 0.87,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B14_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 1,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B14_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B14_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B15_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 1
+            },
+            "confidence": 1
+          },
+          "B15_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B15_urgency": {
+            "type": "score",
+            "score": 0.04,
+            "probabilities": {
+              "0": 0.96,
+              "1": 0.04,
+              "2": 0
+            },
+            "confidence": 0.94,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B16_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 1,
+              "commercial": 0
+            },
+            "confidence": 0.99
+          },
+          "B16_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B16_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B17_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B17_refund": {
+            "type": "noul",
+            "noul": 0.96
+          },
+          "B17_urgency": {
+            "type": "score",
+            "score": 0.08,
+            "probabilities": {
+              "0": 0.92,
+              "1": 0.08,
+              "2": 0
+            },
+            "confidence": 0.88,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B18_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 1,
+              "autre": 0,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B18_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B18_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B19_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 0,
+              "commercial": 1
+            },
+            "confidence": 1
+          },
+          "B19_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B19_urgency": {
+            "type": "score",
+            "score": 0.03,
+            "probabilities": {
+              "0": 0.97,
+              "1": 0.03,
+              "2": 0
+            },
+            "confidence": 0.95,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B20_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "technique": 0,
+              "autre": 1,
+              "commercial": 0
+            },
+            "confidence": 1
+          },
+          "B20_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B20_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 6274,
+          "output_tokens": 1789
+        },
+        "latency_ms": 440,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "B01_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B01_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "B02_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B02_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B03_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B03_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B04_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B04_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B05_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B05_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.96,
+          "pass": true
+        },
+        {
+          "key": "B06_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B06_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B07_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B07_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B08_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B08_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B09_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B09_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B10_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B10_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B11_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B11_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B12_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B12_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B13_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B13_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B14_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B14_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B15_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B15_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B16_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B16_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B17_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B17_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.96,
+          "pass": true
+        },
+        {
+          "key": "B18_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B18_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B19_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B19_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B20_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B20_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case_id": "batch",
+      "repeat": 3,
+      "question_count": 60,
+      "wall_ms": 491,
+      "result": {
+        "model": "jev-1.13.0",
+        "answers": {
+          "B01_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B01_refund": {
+            "type": "noul",
+            "noul": 0.98
+          },
+          "B01_urgency": {
+            "type": "score",
+            "score": 0.1,
+            "probabilities": {
+              "0": 0.9,
+              "1": 0.1,
+              "2": 0
+            },
+            "confidence": 0.84,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B02_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "autre": 0,
+              "facturation": 0
+            },
+            "confidence": 1
+          },
+          "B02_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B02_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B03_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B03_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B03_urgency": {
+            "type": "score",
+            "score": 0.02,
+            "probabilities": {
+              "0": 0.98,
+              "1": 0.02,
+              "2": 0
+            },
+            "confidence": 0.97,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B04_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 1,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B04_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B04_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B05_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B05_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B05_urgency": {
+            "type": "score",
+            "score": 0.14,
+            "probabilities": {
+              "0": 0.86,
+              "1": 0.14,
+              "2": 0
+            },
+            "confidence": 0.79,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B06_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "autre": 0,
+              "facturation": 0
+            },
+            "confidence": 1
+          },
+          "B06_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B06_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B07_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B07_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B07_urgency": {
+            "type": "score",
+            "score": 0.02,
+            "probabilities": {
+              "0": 0.98,
+              "1": 0.02,
+              "2": 0
+            },
+            "confidence": 0.97,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B08_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 1,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B08_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B08_urgency": {
+            "type": "score",
+            "score": 0.01,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B09_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B09_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B09_urgency": {
+            "type": "score",
+            "score": 0.1,
+            "probabilities": {
+              "0": 0.9,
+              "1": 0.1,
+              "2": 0
+            },
+            "confidence": 0.84,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B10_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "technique": 1,
+              "commercial": 0,
+              "autre": 0,
+              "facturation": 0
+            },
+            "confidence": 1
+          },
+          "B10_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B10_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B11_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B11_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B11_urgency": {
+            "type": "score",
+            "score": 0.05,
+            "probabilities": {
+              "0": 0.95,
+              "1": 0.05,
+              "2": 0
+            },
+            "confidence": 0.93,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B12_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 1,
+              "technique": 0
+            },
+            "confidence": 0.99
+          },
+          "B12_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B12_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B13_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B13_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B13_urgency": {
+            "type": "score",
+            "score": 0.08,
+            "probabilities": {
+              "0": 0.92,
+              "1": 0.08,
+              "2": 0
+            },
+            "confidence": 0.88,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B14_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 1
+            },
+            "confidence": 1
+          },
+          "B14_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B14_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B15_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B15_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B15_urgency": {
+            "type": "score",
+            "score": 0.05,
+            "probabilities": {
+              "0": 0.95,
+              "1": 0.05,
+              "2": 0
+            },
+            "confidence": 0.93,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B16_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 1,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B16_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B16_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B17_route": {
+            "type": "choice",
+            "choice": "facturation",
+            "probabilities": {
+              "facturation": 1,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B17_refund": {
+            "type": "noul",
+            "noul": 0.97
+          },
+          "B17_urgency": {
+            "type": "score",
+            "score": 0.08,
+            "probabilities": {
+              "0": 0.92,
+              "1": 0.08,
+              "2": 0
+            },
+            "confidence": 0.88,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B18_route": {
+            "type": "choice",
+            "choice": "technique",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 0,
+              "technique": 1
+            },
+            "confidence": 1
+          },
+          "B18_refund": {
+            "type": "noul",
+            "noul": 0.02
+          },
+          "B18_urgency": {
+            "type": "score",
+            "score": 2,
+            "probabilities": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "confidence": 1,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B19_route": {
+            "type": "choice",
+            "choice": "commercial",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 1,
+              "autre": 0,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B19_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B19_urgency": {
+            "type": "score",
+            "score": 0.03,
+            "probabilities": {
+              "0": 0.97,
+              "1": 0.03,
+              "2": 0
+            },
+            "confidence": 0.95,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          },
+          "B20_route": {
+            "type": "choice",
+            "choice": "autre",
+            "probabilities": {
+              "facturation": 0,
+              "commercial": 0,
+              "autre": 1,
+              "technique": 0
+            },
+            "confidence": 1
+          },
+          "B20_refund": {
+            "type": "noul",
+            "noul": 0.01
+          },
+          "B20_urgency": {
+            "type": "score",
+            "score": 0,
+            "probabilities": {
+              "0": 1,
+              "1": 0,
+              "2": 0
+            },
+            "confidence": 0.99,
+            "legend": {
+              "0": "Demande courante, aucune activité bloquée",
+              "1": "Délai explicite, activité possible",
+              "2": "Activité professionnelle actuellement bloquée sans solution de secours"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 6274,
+          "output_tokens": 1789
+        },
+        "latency_ms": 488,
+        "attempts": 1
+      },
+      "checks": [
+        {
+          "key": "B01_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B01_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.98,
+          "pass": true
+        },
+        {
+          "key": "B02_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B02_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B03_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B03_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B04_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B04_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B05_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B05_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B06_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B06_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B07_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B07_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B08_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B08_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B09_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B09_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B10_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B10_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B11_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B11_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B12_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B12_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B13_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B13_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B14_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B14_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B15_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B15_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B16_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B16_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B17_route",
+          "expected": {
+            "equals": "facturation"
+          },
+          "actual": "facturation",
+          "pass": true
+        },
+        {
+          "key": "B17_refund",
+          "expected": {
+            "min": 0.8
+          },
+          "actual": 0.97,
+          "pass": true
+        },
+        {
+          "key": "B18_route",
+          "expected": {
+            "equals": "technique"
+          },
+          "actual": "technique",
+          "pass": true
+        },
+        {
+          "key": "B18_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.02,
+          "pass": true
+        },
+        {
+          "key": "B19_route",
+          "expected": {
+            "equals": "commercial"
+          },
+          "actual": "commercial",
+          "pass": true
+        },
+        {
+          "key": "B19_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        },
+        {
+          "key": "B20_route",
+          "expected": {
+            "equals": "autre"
+          },
+          "actual": "autre",
+          "pass": true
+        },
+        {
+          "key": "B20_refund",
+          "expected": {
+            "max": 0.2
+          },
+          "actual": 0.01,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "connection_ms": 121,
+  "tools": [
+    "jev_evaluate"
+  ],
+  "finished_at": "2026-09-20T15:48:56.525Z"
+}

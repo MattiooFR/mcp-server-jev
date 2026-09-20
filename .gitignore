@@ -3,3 +3,4 @@ node_modules/
 *.log
 coverage/
 *.tgz
+tutorial-results.json
