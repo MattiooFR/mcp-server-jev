@@ -1,0 +1,14 @@
+{
+  "state": {
+    "reference_date": "2026-09-20",
+    "documents": [
+      { "id": "A17", "published_at": "2026-09-16", "text": "The tournament will take place from June 11 to July 19, 2026. Try our simulator below.", "observed_widget_state": "The simulator container is empty; no interactive controls are rendered." },
+      { "id": "A18", "published_at": "2026-09-16", "text": "This historical profile examines a retired player's passing technique, using match footage and dated interviews." }
+    ]
+  },
+  "questions": {
+    "A17_temporal_error": { "type": "noul", "instructions": "Does document A17 present an event as upcoming even though the stated event dates precede its publication date?" },
+    "A17_broken_promise": { "type": "noul", "instructions": "Does document A17 promise a usable interactive tool that the supplied observation says is absent?" },
+    "A18_review_priority": { "type": "score", "instructions": "How urgently does document A18 need editorial review, based only on supplied evidence? Do not infer facts that are absent.", "criteria": ["No demonstrated defect in the supplied evidence", "A specific ambiguity or minor defect needs review", "A demonstrated central contradiction or broken promise needs urgent review"] }
+  }
+}

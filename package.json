@@ -1,0 +1,17 @@
+{
+  "name": "mcp-server-jev",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Give Codex, Claude and other MCP clients typed decisions with TypeSafe Jev",
+  "license": "MIT",
+  "author": "MattiooFR",
+  "repository": { "type": "git", "url": "https://github.com/MattiooFR/mcp-server-jev.git" },
+  "homepage": "https://github.com/MattiooFR/mcp-server-jev#readme",
+  "bugs": { "url": "https://github.com/MattiooFR/mcp-server-jev/issues" },
+  "keywords": ["mcp", "jev", "typesafe", "claude", "codex", "classification"],
+  "bin": { "mcp-server-jev": "src/cli.mjs" },
+  "files": ["src", "README.md", "LICENSE", "examples"],
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node src/cli.mjs", "test": "node --test test/*.test.mjs", "smoke": "node scripts/smoke.mjs", "prepack": "npm test" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.0", "zod": "4.6.5" }
+}

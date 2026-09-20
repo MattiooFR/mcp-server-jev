@@ -1,0 +1,8 @@
+{
+  "state": { "ticket": "My invoice shows two charges for the same order. Please refund the duplicate.", "order_id": "example-42" },
+  "questions": {
+    "department": { "type": "choice", "instructions": "Which department should handle the ticket?", "criteria": { "billing": "Payments, invoices and refunds", "technical": "Bugs and broken features", "other": "Neither billing nor technical" } },
+    "requests_refund": { "type": "noul", "instructions": "Does the ticket explicitly request a refund?" },
+    "urgency": { "type": "score", "instructions": "How time-sensitive is the ticket?", "criteria": ["Routine request with no deadline or blocked activity", "Time-sensitive issue with a workaround", "Immediate deadline or completely blocked critical activity"] }
+  }
+}
