@@ -1,6 +1,8 @@
 # Installer Jev dans Codex ou Claude
 
-Ce serveur ajoute un outil nommé **`jev_evaluate`** à ton agent. Il transmet le texte et les questions à TypeSafe, puis renvoie des choix, des probabilités et des notes. Le serveur est open source sous licence MIT ; l'API TypeSafe a ses propres conditions et tarifs. L'abonnement à ton agent ne fournit pas cette clé API.
+Ce serveur ajoute **`jev_evaluate`** pour les questions typées et **`jev_classify`** pour classer un lot dans des catégories définies. Il transmet les preuves à TypeSafe, puis renvoie des choix, des probabilités et des notes. Le serveur est open source sous licence MIT ; l'API TypeSafe a ses propres conditions et tarifs. L'abonnement à ton agent ne fournit pas cette clé API.
+
+L'agent peut appeler Jev de lui-même lorsqu'il doit juger le sens d'un texte avec des catégories ou une grille claires. Il cherche d'abord les faits, donne les preuves brutes à Jev, prévoit une option « aucune » et revoit les cas incertains. Il garde les calculs exacts et l'explication finale. Un lot `jev_classify` lance une évaluation ; appeler `jev_evaluate` pour chaque élément lance une évaluation par élément. Les réponses HTTP 429/5xx peuvent être rejouées ; le nombre réel de tentatives est renvoyé.
 
 ## Le plus simple : donne cette demande à ton agent
 

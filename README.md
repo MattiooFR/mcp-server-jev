@@ -14,7 +14,7 @@ Read the illustrated French walkthrough: **[Jev dans Codex et Claude : 8 tests e
 
 ## What it exposes
 
-One tool: **`jev_evaluate`**.
+Two tools: **`jev_evaluate`** for typed questions and **`jev_classify`** for repeated classification against the same predefined classes.
 
 | Question type | Use it for | Result |
 | --- | --- | --- |
@@ -25,6 +25,14 @@ One tool: **`jev_evaluate`**.
 Each response also includes the actual model, token usage, total latency, and attempt count. Questions may be mixed in one call. The server uses the [native TypeSafe API shapes](https://docs.typesafe.ai/api), including structured instructions and criteria.
 
 Jev evaluates the content you supply. It does not fetch URLs, search the web, write explanations, or perform actions. Confidence describes the model's distribution; it does not prove factual accuracy. Keep consequential decisions with the calling agent or a human reviewer.
+
+### When an agent should call Jev
+
+Delegate narrow semantic judgments when the categories or rubric are defined before the call: routing, relevance, moderation, qualitative review, or repeated classification. Retrieve the evidence first and give Jev the original text or records, the applicable policy, and concrete class definitions. Do not send a verdict drafted by the agent as evidence. Include a no-match or insufficient-evidence class, and review close or consequential results. The agent remains responsible for research, exact calculations, deterministic rules, writing, and explaining the final decision.
+
+For repeated classification, `jev_classify` accepts `purpose`, `items` with stable IDs and raw `content`, `classes` with descriptions, and a required `none` class. It sends one provider request containing one choice question per item and returns each class probability, the selected class, and `reviewIds`. By default, it recommends review when the selected class is `none`, the top probability is below 0.85, or the gap to the next class is below 0.2. These are starting thresholds; calibrate them with labeled examples before using automatic actions. A batch contains at most 100 items and 254 named classes plus `none`.
+
+`jev_classify` makes **one logical evaluation per batch**. If isolation between items matters, the agent can instead call `jev_evaluate` once for each item; that makes **one evaluation per item** and can consume more quota. This is an explicit choice, not an automatic fallback. HTTP 429/5xx retries can make more than one provider request; `attempts` and `upstreamCalls` report the actual count.
 
 ## Install from source
 
