@@ -2,9 +2,11 @@ name: CI
 on: [push, pull_request]
 permissions:
   contents: read
+# Runners self-hosted ci-hetzner (ancien Hetzner 144.76.224.57, utilisateur dédié au projet)
+# depuis le 21/10/2026, à la place des runners GitHub hébergés.
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ci-hetzner]
     strategy:
       matrix:
         node: [22, 24]
