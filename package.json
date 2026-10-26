@@ -13,5 +13,5 @@
   "files": ["src", "README.md", "LICENSE", "examples"],
   "engines": { "node": ">=22" },
   "scripts": { "start": "node src/cli.mjs", "test": "node --test test/*.test.mjs", "smoke": "node scripts/smoke.mjs", "prepack": "npm test" },
-  "dependencies": { "@modelcontextprotocol/sdk": "1.30.0", "zod": "4.6.5" }
+  "dependencies": { "@modelcontextprotocol/sdk": "1.32.0", "zod": "4.6.6" }
 }
